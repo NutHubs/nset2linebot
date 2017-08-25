@@ -42,13 +42,13 @@ else if($arrJsonMsg == "วันที่")
   $arrPostData['messages'][0]['text'] = "Today is ".date("Y-m-d H:i:s");
 }
 
-else if($arrJsonMsg == "กินข้าวรึยัง" || $arrJsonMsg == "กินข้าวยัง" || $arrJsonMsg == "กินข้าวรึยัง?" || $arrJsonMsg == "กินข้าวยัง?")
+/*else if($arrJsonMsg == "กินข้าวรึยัง" || $arrJsonMsg == "กินข้าวยัง" || $arrJsonMsg == "กินข้าวรึยัง?" || $arrJsonMsg == "กินข้าวยัง?")
 {
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
   $arrPostData['messages'][0]['text'] = "หิวพอดี ไปกินด้วยม");
-}
+}*/
 
 else if(strtoupper($arrJsonMsg) == "SERVER TEMP")
 {
