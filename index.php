@@ -27,11 +27,11 @@ else if($arrJsonMsg == "ชื่ออะไร"){
   $arrPostData['messages'][0]['text'] = "I'm NUT-BOT";
 }
 
-else if($arrJsonMsg == "ทำอะไรได้บ้าง"){
+else if($arrJsonMsg == "กินข้าวยัง"){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "ฉันทำอะไรไม่ได้เลย คุณต้องสอนฉันอีกเยอะ";
+  $arrPostData['messages'][0]['text'] = "หิวพอดีเลย ไปหาไรกินกัน เลี้ยงด้วยน้าา :)";
 }
 
 else if($arrJsonMsg == "วันที่")
