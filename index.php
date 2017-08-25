@@ -42,7 +42,7 @@ else if($arrJsonMsg == "วันที่")
   $arrPostData['messages'][0]['text'] = "Today is ".date("Y-m-d H:i:s");
 }
 
-else if($arrJsonMsg == "กินข้าวรึยัง")
+else if($arrJsonMsg == "food")
 {
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
