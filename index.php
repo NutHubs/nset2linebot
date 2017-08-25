@@ -31,11 +31,8 @@ else if($arrJsonMsg == "กินข้าวยัง" || $arrJsonMsg == "ก�
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "หิวพอดีเลย ~";
+  $arrPostData['messages'][0]['text'] = "ไปหาไรกินกัน ได้เจ้ามือหล่ะ อิอิ";
   
-  $arrPostData['replyToken'] = $arrJson['events'][1]['replyToken'];
-  $arrPostData['messages'][1]['type'] = "text";
-  $arrPostData['messages'][1]['text'] = "ไปหาไรกินกัน ได้เจ้ามือหล่ะ อิอิ";
 }
 
 else if($arrJsonMsg == "วันที่")
