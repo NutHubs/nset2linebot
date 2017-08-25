@@ -47,7 +47,7 @@ else if($arrJsonMsg == "food")
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
-  $arrPostData['messages'][0]['text'] = "หิวพอดี ไปกินด้วยม");
+  $arrPostData['messages'][0]['text'] = "หิวพอดี ไปกินด้วยม่ะ?");
 }
 
 else if(strtoupper($arrJsonMsg) == "SERVER TEMP")
