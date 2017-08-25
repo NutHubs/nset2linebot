@@ -27,7 +27,7 @@ else if($arrJsonMsg == "ชื่ออะไร"){
   $arrPostData['messages'][0]['text'] = "I'm NUT-BOT";
 }
 
-else if($arrJsonMsg == "กินข้าวยัง" || $arrJsonMsg == "กินข้าวรึยัง" || $arrJsonMsg == "กินข้าวหรือยัง" ){
+else if($arrJsonMsg == "กินข้าวยัง" || $arrJsonMsg == "กินข้าวรึยัง" ){
   $arrPostData = array();
   $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
   $arrPostData['messages'][0]['type'] = "text";
