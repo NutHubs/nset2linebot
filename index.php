@@ -12,7 +12,6 @@ $arrHeader[] = "Content-Type: application/json";
 $arrHeader[] = "Authorization: Bearer {$strAccessToken}";
 $_msg = $arrJson['events'][0]['message']['text'];
 
-
 $api_key="_ZLyBX6InXGzrE-ki01xKzo-QyXHOwPN";
 $url = 'https://api.mlab.com/api/1/databases/nsetbot_db/collections/linebot?apiKey='.$api_key.'';
 $json = file_get_contents('https://api.mlab.com/api/1/databases/nsetbot_db/collections/linebot?apiKey='.$api_key.'&q={"question":"'.$_msg.'"}');
@@ -56,16 +55,15 @@ if (strpos($_msg, 'สอนบอท') !== false) {
     $arrPostData['messages'][0]['text'] = $rec->answer;
    }
   }
-  else if(strtoupper($arrJsonMsg) == "SERVER TEMP")
+  else{
+    
+  if(strtoupper($_msg) == "SERVER TEMP")
   {
     header('Access-Control-Allow-Origin: *');
     $url = "https://api.netpie.io/topic/SmartServerMonitor/ServerRoom1?retain&auth=OLfJOENYvYLmbqG:J0o3U9oywRvgnLtl5lLhscdJ5";
     $response = file_get_contents($url);
 
     $obj = json_decode($response, true);
-
-    /*echo "<pre>";*/
-    /*print_r($obj);*/
 
     $strTemp = $obj[0]['payload'];
     $arrTemp = explode("|", $strTemp);
@@ -75,11 +73,12 @@ if (strpos($_msg, 'สอนบอท') !== false) {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = "Server room temp : \n".$arrTemp[0]." °C";
   }
-  else{
+    else{
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = 'คุณสามารถสอนบอทให้ฉลาดขึ้นได้ เพียงพิมพ์: สอนบอท[คำถาม|คำตอบ]';
+    }
   }
 }
 
