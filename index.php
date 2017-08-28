@@ -55,7 +55,27 @@ if (strpos($_msg, 'สอนบอท') !== false) {
     $arrPostData['messages'][0]['type'] = "text";
     $arrPostData['messages'][0]['text'] = $rec->answer;
    }
-  }else{
+  }
+  else if(strtoupper($arrJsonMsg) == "SERVER TEMP")
+  {
+    header('Access-Control-Allow-Origin: *');
+    $url = "https://api.netpie.io/topic/SmartServerMonitor/ServerRoom1?retain&auth=OLfJOENYvYLmbqG:J0o3U9oywRvgnLtl5lLhscdJ5";
+    $response = file_get_contents($url);
+
+    $obj = json_decode($response, true);
+
+    /*echo "<pre>";*/
+    /*print_r($obj);*/
+
+    $strTemp = $obj[0]['payload'];
+    $arrTemp = explode("|", $strTemp);
+    
+    $arrPostData = array();
+    $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
+    $arrPostData['messages'][0]['type'] = "text";
+    $arrPostData['messages'][0]['text'] = "Server room temp : \n".$arrTemp[0]." °C";
+  }
+  else{
     $arrPostData = array();
     $arrPostData['replyToken'] = $arrJson['events'][0]['replyToken'];
     $arrPostData['messages'][0]['type'] = "text";
